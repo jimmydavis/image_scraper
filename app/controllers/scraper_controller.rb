@@ -3,12 +3,14 @@ class ScraperController < ApplicationController
   def index
   end
 
-  def links
-    scraper = Scraper.new()
-    scraper.get_hrefs
+  def get_images
+    scraper = Scraper.new("http://www.nytimes.com")
+    render json: scraper.get_images
   end
 
-  def pictures
+  def get_hrefs
+    scraper = Scraper.new("http://www.nytimes.com")
+    render json: scraper.get_hrefs
   end
 
 end

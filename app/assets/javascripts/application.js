@@ -15,25 +15,18 @@
 //= require_tree .
 
 
-$(document).ready(function() {
-
-  $("#links").on("click", function() {
-    var url = $("#input").val();
-    getLinks(url);
+$(document).ready(function(){
+  $('button').on('click', function(e) {
+    $.ajax({
+      type: 'get',
+      url: '/get_' + this.id
+    }).done(function(data){
+      $('#data').empty();
+      $.each(data, function(index, element) {
+        $('#data').append('<li>' + element + '</li>')
+      });
+    });
   });
-
-  $("#pictures").on("click", function() {
-    getPictures();
-  });
-
 });
-
-getLinks = function() {
- $.ajax({
-      type: "GET",
-      url: "/links",
-}).done(function() {
-
-})
 
 

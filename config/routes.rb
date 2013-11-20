@@ -1,8 +1,8 @@
 GrayLadyApp::Application.routes.draw do
 
   root to: 'scraper#index'
-  get '/links' => 'scraper#links'
-  get '/pictures' => 'scraper#pictures'
+  get '/get_hrefs' => 'scraper#get_hrefs'
+  get '/get_images' => 'scraper#get_images'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
