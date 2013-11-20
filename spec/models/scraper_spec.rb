@@ -6,6 +6,11 @@ describe Scraper do
   expect(scraper.url).to eq("http://jonl.org/")
  end
 
+  it "returns an array" do
+    scraper = Scraper.new("http://jonl.org/")
+    expect(scraper.get_hrefs).to be_instance_of Array
+  end
+
   it "uses nokogiri to return an array of all the links on a page with get_hrefs" do
     scraper = Scraper.new("http://jonl.org/")
     array = ["Hi/Happier/Happier.html",
@@ -28,7 +33,10 @@ describe Scraper do
     # "http://facebook.com/friendjonathanleung",
     # "http://twitter.com/jonathanjleung"]
 
-
+  it "returns an array" do
+    scraper = Scraper.new("http://jonl.org/")
+    expect(scraper.get_images).to be_instance_of Array
+  end
   it "uses nokogiri to return an array of all the images on a page with get_images" do
     scraper = Scraper.new("http://generalassemb.ly/")
     expect(scraper.get_images.length).to eq(20)
